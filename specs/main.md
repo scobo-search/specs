@@ -20,7 +20,7 @@ $options = [
         'description'
     ]
 ];
-Scobo\Scobo::driver(Scobo\MySQLDriver($driverConfig))->search('index', 'search query', $options);
+Scobo\Scobo::driver(Scobo\MySQLDriver($driverConfig))->index('example')->search('search query', $options);
 ```
 
 And In return the develops should receive an array:
