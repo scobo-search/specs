@@ -36,3 +36,31 @@ In the end the developer should recieve an array:
     ]
 ]
 ```
+
+## Adding to the Index
+The following is a basic example, please note that the config array has been ommitted for simplicity.
+```php
+$data = [
+    'id' => 1,
+    'description' => 'This is a description',
+    'author' => [
+        'id' => 'user'
+        'username' => 'example_user',
+    ]
+];
+Scobo\Scobo::driver(Scobo\ElasticDriver($driverConfig))->index('example')->add($data);
+```
+The response should return an object ID, the developer should store this ID if the need arises to delete the object. The ID should be returned as a string for compatibility with services
+```php
+'f6cfebed-412d-4237-8543-29dc0976939b'
+```
+
+## Removing from the index
+The following is a basic example, please note that the config array has been ommitted for simplicity.
+```php
+Scobo\Scobo::driver(Scobo\ElasticDriver($driverConfig))->index('example')->remove('f6cfebed-412d-4237-8543-29dc0976939b');
+```
+The response should be true or false only to inform the developer if the deletion was sucessful
+```php
+true
+```
