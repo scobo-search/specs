@@ -60,7 +60,7 @@ The following is a basic example, please note that the config array has been omm
 ```php
 Scobo\Scobo::driver(Scobo\ElasticDriver($driverConfig))->index('example')->remove('f6cfebed-412d-4237-8543-29dc0976939b');
 ```
-The response should be true or false only to inform the developer if the deletion was sucessful
+The response should return true, unless there is an error in which case it should return the ScoboError:
 ```php
 true
 ```
